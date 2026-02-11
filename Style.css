@@ -1,1 +1,92 @@
+/* --- BODY AND BACKGROUND --- */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+  background: #000;
+  overflow-x: hidden;
+  color: #0ff; /* Neon blue */
+}
 
+.fog {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: url('https://images.unsplash.com/photo-1535485438365-227e96f0f0f5?auto=format&fit=crop&w=800&q=80') repeat;
+  opacity: 0.1;
+  animation: moveFog 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes moveFog {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+/* --- CONTAINER --- */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+/* --- PROFILE PICTURE --- */
+.pfp {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 60px #0ff;
+  margin-bottom: 20px;
+}
+
+/* --- TYPING TEXT --- */
+.typing-text {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 4px solid #0ff;
+  width: 0; /* JS will handle typing effect */
+  margin-bottom: 20px;
+}
+
+/* --- DISCORD LINK --- */
+.discord-link {
+  display: inline-block;
+  margin: 20px 0;
+}
+
+.discord-icon {
+  width: 50px;
+  height: 50px;
+  filter: drop-shadow(0 0 10px #0ff);
+  transition: transform 0.2s;
+}
+
+.discord-icon:hover {
+  transform: scale(1.2);
+}
+
+/* --- ABOUT ME --- */
+.about {
+  max-width: 600px;
+  margin-top: 30px;
+  font-size: 16px;
+  line-height: 1.6;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+/* --- RESPONSIVE --- */
+@media only screen and (max-width: 600px) {
+  .pfp { width: 120px; height: 120px; }
+  .typing-text { font-size: 16px; }
+  .about { font-size: 14px; padding: 0 10px; }
+}
